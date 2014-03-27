@@ -1,9 +1,0 @@
-```markup
-<a class="..." id="..." data-modal="toggle" href="#">
-  Example link
-</a>
-
-<input class="form-control" type="text">
-
-<img src="..." alt="...">
-```
