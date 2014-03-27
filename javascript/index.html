@@ -1,0 +1,377 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><title>Javascript | FrontEnd Style Guide</title><meta name="description" content=""><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="shortcut icon" sizes="16x16 32x32 48x48 64x64" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon.ico"><link rel="icon" sizes="96x96" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-96.png"><link rel="apple-touch-icon" sizes="152x152" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-152.png"><link rel="apple-touch-icon" sizes="144x144" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-144.png"><link rel="apple-touch-icon" sizes="120x120" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-120.png"><link rel="apple-touch-icon" sizes="114x114" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-114.png"><link rel="apple-touch-icon" sizes="76x76" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-76.png"><link rel="apple-touch-icon" sizes="72x72" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-72.png"><link rel="apple-touch-icon" href="../../../../../../frontend-styleguide/assets/images/favicon/favicon-57.png"><meta property="og:title" content="FrontEnd Style Guide"><meta property="og:description" content="Escrever códigos é o que fazemos todos os dias. Por isso criamos esse guia, para que você possa manter um padrão de convenções e boas práticas para que seu código seja o mais declarativo possível e que ele possa ter um brilho natural."><meta property="og:type" content="website"><meta property="og:url" content="http://pedronauck.com/frontend-styleguide"><meta property="og:image" content="http://f.cl.ly/items/0c0q1A40120F012z0F26/frontend-styleguide_facebookImage.png"><link rel="stylesheet" href="../../../../../../frontend-styleguide/assets/css/style.css"></head><body><header class="header" data-stellar-background-ratio="2" data-stellar-horizontal-offset="50" data-stellar-vertical-offset="200"><h1 class="logo"><a href="/frontend-styleguide"><img src="../../../../../../frontend-styleguide/assets/images/logo.svg" alt="Voltar para Home"></a></h1><div class="share-buttons"><iframe class="github-fork-button" src="http://ghbtns.com/github-btn.html?user=pedronauck&repo=frontend-styleguide&type=fork&count=true" height="30" width="85" frameborder="0" scrolling="0" style="width:85px; height: 20px" allowtransparency="true"></iframe><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fpedronauck.com%2Ffrontend-styleguide&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=127412984026726" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:23px; padding-top:3px" allowtransparency="true"></iframe><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt-br" data-url="http://pedronauck.com/frontend-styleguide" data-via="pedronauck" data-text="Guia de Estilo para FrontEnd http://bit.ly/1m5RJHe #javascript #html #css #frontend">Tweet</a><div class="g-plus" data-action="share" data-annotation="none"></div></div></header><nav class="navigation"><ul class="navigation-menu"><li class="navigation-item html"><a href="/frontend-styleguide/html"><img src="../../../../../../frontend-styleguide/assets/images/logo-html.svg"> HTML</a></li><li class="navigation-item css"><a href="/frontend-styleguide/css"><img src="../../../../../../frontend-styleguide/assets/images/logo-css.svg"> CSS</a></li><li class="navigation-item js"><a href="/frontend-styleguide/javascript"><img src="../../../../../../frontend-styleguide/assets/images/logo-js.svg"> JS</a></li></ul></nav><main class="main"><nav class="toc-nav"><h2 class="nav-title">Tabela de Conteúdo <a class="btn-show-toc" id="buttonShowToc" href="#"><i class="icon-list"></i></a></h2><ul class="menu" id="tocNavMenu"><li class="menu-item"><a href="#why-js">Porque Javascript?</a></li><li class="menu-item"><a href="#types">Tipos em Javascript</a></li><li class="menu-item"><a href="#syntax">Sintaxe</a></li><li class="menu-item"><a href="#semicolons">Uso ponto e vírgula?</a></li><li class="menu-item"><a href="#blocks">Blocos de Script</a></li><li class="menu-item"><a href="#lint">Code Linting</a></li><li class="menu-item"><a href="#vars">Variáveis</a><ul class="submenu"><li class="menu-item"><a href="#vars-global-namespaces">Namespaces globais</a></li><li class="menu-item"><a href="#vars-declarations">Declarando Variáveis</a></li><li class="menu-item"><a href="#vars-naming">Nomeando variáveis</a></li><li class="menu-item"><a href="#vars-constants">Constantes</a></li><li class="menu-item"><a href="#vars-strings">Strings</a></li><li class="menu-item"><a href="#vars-commas">Vírgulas</a></li></ul></li><li class="menu-item"><a href="#arrays">Array</a><ul class="submenu"><li class="menu-item"><a href="#arrays-creating">Criando Arrays</a></li><li class="menu-item"><a href="#arrays-copying">Copiando Arrays</a></li><li class="menu-item"><a href="#arrays-converting">Convertendo Objetos em Array</a></li></ul></li><li class="menu-item"><a href="#functions">Funções</a><ul class="submenu"><li class="menu-item"><a href="#functions-types">Tipos de funções</a></li><li class="menu-item"><a href="#functions-define">Definindo funções</a></li></ul></li><li class="menu-item"><a href="#objects">Objetos</a><ul class="submenu"><li class="menu-item"><a href="#objects-creating">Criando objetos</a></li><li class="menu-item"><a href="#objects-accessing">Acessando Objetos</a></li><li class="menu-item"><a href="#objects-checking-boolean">Checkando Propriedades Boleanas</a></li></ul></li><li class="menu-item"><a href="#constructors">Construtores</a><ul class="submenu"><li class="menu-item"><a href="#constructors-define">Definindo Construtores</a></li><li class="menu-item"><a href="#constructors-namespaces">Namespaces Internos e Métodos Privados</a></li><li class="menu-item"><a href="#constructors-prototype">Prototypes</a></li><li class="menu-item"><a href="#constructors-getters-setters">Getters and Setters</a></li><li class="menu-item"><a href="#constructors-chain-methods">Chain Methods (Métodos encadeados)</a></li></ul></li><li class="menu-item"><a href="#conditionals-expressions">Expressões Condicionais & Igualdade</a></li><li class="menu-item"><a href="#loops">Loops</a></li><li class="menu-item"><a href="#whitespaces">Espaços em Branco</a><ul class="submenu"><li class="menu-item"><a href="#whitespaces-rules">Regras Gerais</a></li><li class="menu-item"><a href="#whitespaces-chain">Idente seus Chain Methods</a></li></ul></li><li class="menu-item"><a href="#comments">Comentários</a></li></ul></nav><div class="content"><h2 class="title-main">Javascript</h2><section class="row" id="why-js"><div class="column"><h3 id="porque-javascript-">Porque Javascript?</h3><p>Javascript é muito conhecido por suas peculiaridades, <a href="http://wtfjs.com/">algumas delas</a> consideradas um tanto quanto bizarras. Porém Javascript é uma linguagem extremamente poderosa e inclue uma série de idéias ótimas, como funções, objetos dinâmicos e notação literal de expressão de objetos.</p><p>A importância de se usar Javascript está em seu ambiente. Hoje Javascript é a única linguagem universal para o mundo da web, ou seja, caso você queira trabalhar com esta plataforma, você será obrigado a aprender pelo menos o mínimo da linguagem.</p><p>Este Guia de Javascript server para lhe ajudar a ter um código padrão e cheio de boas práticas, por isso leia ele até o final, por mais que você não se adeque aos padrões, tenho certeza que alguma coisa daqui você conseguirá tirar proveito.</p></div></section><section class="row" id="types"><div class="column"><h3 id="tipos-em-javascript">Tipos em Javascript</h3><p>Javascript é uma linguagem <em>loose typing</em> (tipagem fraca), ou seja, você não precisar definir o tipo de suas variáveis e ainda pode fazer operações entre os diferentes tipos. Para alguns isso implica em muitos erros e pode ser uma coisa ruim, para outros isso pode ser uma forma mais produtiva e &quot;libertadora&quot; de trabalhar.</p><p>Em Javascript temos dois conjuntos de tipos, são os <strong>Tipos Primitivos</strong> e os <strong>Tipos Complexos</strong>, veja abaixo cada um deles:</p><p><strong>Tipos Primitivos:</strong></p><ul><li><code>string</code></li><li><code>number</code></li><li><code>boolean</code></li><li><code>null</code></li><li><code>undefined</code></li></ul><p><strong>Tipos Complexos:</strong></p><ul><li><code>object</code></li><li><code>array</code></li><li><code>function</code></li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Quando você acessa um tipo primitivo você trabalha diretamente com seus valores</span>
+<span class="keyword">var</span> foo = <span class="number">1</span>,
+    bar = foo;
+
+bar = <span class="number">9</span>;
+console.log(foo, bar); <span class="comment">// =&gt; 1, 9</span>
+
+<span class="comment">// Já nos tipos complexos, você trabalha com valores como referência</span>
+<span class="keyword">var</span> foo = [<span class="number">1</span>, <span class="number">2</span>],
+    bar = foo;
+
+bar[<span class="number">0</span>] = <span class="number">9</span>;
+
+console.log(foo[<span class="number">0</span>], bar[<span class="number">0</span>]); <span class="comment">// =&gt; 9, 9</span></code></pre></div></section><section class="row" id="syntax"><div class="column"><h3 id="sintaxe">Sintaxe</h3><ul><li>Como você já deve saber: Use soft-tabs com dois espaços.</li><li>Opte por remover automaticamente espaços em branco. Muitos editores de textos tem essa preferência automática.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> name = <span class="string">'John Doe'</span>;
+}
+
+<span class="comment">// Bom</span>
+<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">var</span> name = <span class="string">'John Doe'</span>;
+}</code></pre></div></section><section class="row" id="semicolons"><div class="column"><h3 id="uso-ponto-e-v-rgula-">Uso ponto e vírgula?</h3><p>Sim.</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+ <span class="keyword">var</span> name = <span class="string">'Skywalker'</span>
+ <span class="keyword">return</span> name
+})()
+
+<span class="comment">// Bom</span>
+(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+ <span class="keyword">var</span> name = <span class="string">'Skywalker'</span>;
+ <span class="keyword">return</span> name;
+})();
+
+<span class="comment">// Bom</span>
+;(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+ <span class="keyword">var</span> name = <span class="string">'Skywalker'</span>;
+ <span class="keyword">return</span> name;
+})();</code></pre></div></section><section class="row" id="blocks"><div class="column"><h3 id="blocos-de-script">Blocos de Script</h3><p>Sempre que tiver múltiplas linhas use <code>{}</code>. Isto tornará seu código muito mais legível e de fácil entendimento. Do contrário, muitas pessoas não saberão aonde sua instrução começa e aonde ela termina.</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">if</span> (test)
+  <span class="keyword">return</span> <span class="literal">false</span>;
+
+<span class="comment">// Bom</span>
+<span class="keyword">if</span> (test) <span class="keyword">return</span> <span class="literal">false</span>;
+
+<span class="comment">// Bom</span>
+<span class="keyword">if</span> (test) {
+  <span class="keyword">return</span> <span class="literal">false</span>;
+}
+
+<span class="comment">// Ruim</span>
+<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="keyword">return</span> <span class="literal">false</span>; }
+
+<span class="comment">// Bom</span>
+<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">return</span> <span class="literal">false</span>;
+}</code></pre></div></section><section class="row" id="lint"><div class="column"><h3 id="code-linting">Code Linting</h3><p>Usar um code linting em seu código fará com que você possa manter todos os seus padrões em dia de uma maneira automática e sem correr o risco de não seguir algumas convenções definidas.</p><p>Há algumas opções no mercado, desde <a href="http://www.gruntjs.com">automatizadores de tarefas</a> até <a href="https://github.com/SublimeLinter/SublimeLinter3">plugins para editores de texto</a>. Escolha o que melhor se encaixa no seu workflow, estude ele e aproveito o máximo.</p></div></section><h3 class="title-sub" id="vars">Variáveis</h3><section class="row" id="vars-global-namespaces"><div class="column"><h3 id="namespaces-globais">Namespaces globais</h3><ul><li>Sempre use <code>var</code> para declarar suas variáveis. Caso contrário, você terá um monte de variáveis globais, e queremos evitar a poluição do nosso namespace global, certo?</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+superPower = <span class="keyword">new</span> SuperPower();
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> superPower = <span class="keyword">new</span> SuperPower();</code></pre></div></section><section class="row" id="vars-declarations"><div class="column"><h3 id="declarando-vari-veis">Declarando Variáveis</h3><ul><li>Use um <code>var</code> para declarar múltiplas variáveis e declare cada uma em uma nova linha. Declare as variavéis não definidas por último.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> i;
+<span class="keyword">var</span> length;
+<span class="keyword">var</span> items = getItems();
+<span class="keyword">var</span> goSportsTeam = <span class="literal">true</span>;
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> items = getItems(),
+    goSportsTeam = <span class="literal">true</span>,
+    len,
+    i;</code></pre></div></section><section class="row" id="vars-naming"><div class="column"><h3 id="nomeando-vari-veis">Nomeando variáveis</h3><p>Para facilitar a manutenção no seu código, evite complicar e criar coisas misteriosas que só você sabe o que é, seja simples e bem declarativo.</p><ul><li>Evite usar nomes misteriosos, por favor! Tenta a palavra literalmente.</li><li>Use <code>$</code> para criar referência de objetos DOM em uma variável. Assim ficará fácil identificar quando uma variável é uma referência a um objeto DOM ao longo do seu código.</li><li>Use <code>camelCase</code> quando nomear objectos, funções e instâncias.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> mObj = {},
+    btn = document.querySelector(<span class="string">'.button'</span>);
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> myObject = {},
+    $button = document.querySelector(<span class="string">'.button'</span>);
+
+<span class="comment">// Ruim</span>
+<span class="keyword">var</span> OBJEcttsssss = {};
+<span class="keyword">var</span> this_is_my_object = {};
+<span class="function"><span class="keyword">function</span> <span class="title">c</span><span class="params">()</span> {</span>};
+<span class="keyword">var</span> u = <span class="keyword">new</span> user({
+  name: <span class="string">'Bob Parr'</span>
+});
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> thisIsMyObject = {};
+<span class="function"><span class="keyword">function</span> <span class="title">thisIsMyFunction</span><span class="params">()</span> {</span>};
+<span class="keyword">var</span> user = <span class="keyword">new</span> User({
+  name: <span class="string">'Bob Parr'</span>
+});</code></pre></div></section><section class="row" id="vars-constants"><div class="column"><h3 id="constantes">Constantes</h3><p>Caso você tenha alguma constante em sua aplicação, opte por escreve-lá usando o padrão <code>UPPERCASE</code>, assim você facilitará a leitura do seu código para outras pessoas, pois quando alguém ver alguma variável declarada com este padrão, saberá que aquilo é uma constante.</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> foo = <span class="string">'foo'</span>;
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> FOO = <span class="string">'foo'</span>;</code></pre></div></section><section class="row" id="vars-strings"><div class="column"><h3 id="strings">Strings</h3><ul><li>Prefira aspas simples ao invés de aspas duplas</li><li>Cores hexadecimais sempre usando caixa alta, nunca caixa baixa.</li><li>Strings maiores que 80 caracteres devem ser quebradas entre multiplas linhas usando concatenação de strings.</li><li>Deixe espaços entre os simbolos de <code>+</code> quando concatenar strings.</li><li>Quando usar uma técnica de concatenação de strings, faça uma identação alinhada verticalmente para facilitar a leitura.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> string = <span class="string">'&lt;p class="foo"&gt;Lorem Ipsum&lt;/p&gt;'</span>;
+<span class="keyword">var</span> color = <span class="string">'#d96ab6'</span>;
+<span class="keyword">var</span> message = <span class="string">'The color'</span>+color+<span class="string">'is pink!'</span>,
+<span class="keyword">var</span> errorMessage = <span class="string">'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.'</span>;
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> string = <span class="string">'&lt;p class="foo"&gt;Lorem Ipsum&lt;/p&gt;'</span>,
+    color = <span class="string">'#D96AB6'</span>,
+    message = <span class="string">'The color'</span> + color + <span class="string">'is pink!'</span>,
+    errorMessage = <span class="string">'This is a super long error that '</span> +
+                   <span class="string">'was thrown because of Batman. '</span> +
+                   <span class="string">'When you stop to think about '</span> +
+                   <span class="string">'how Batman had anything to do '</span> +
+                   <span class="string">'with this, you would get nowhere '</span> +
+                   <span class="string">'fast.'</span>;</code></pre></div></section><section class="row" id="vars-commas"><div class="column"><h3 id="v-rgulas">Vírgulas</h3><ul><li>Commas first? Não, obrigado!</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> once
+  , upon
+  , aTime;
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> once,
+    upon,
+    aTime;</code></pre></div></section><h3 class="title-sub" id="arrays">Arrays</h3><section class="row" id="arrays-creating"><div class="column"><h3 id="criando-arrays">Criando Arrays</h3><ul><li>Use a sintaxe literal para criar novos arrays.</li><li>Para acrescentar um item no final de array, use <code>Array#push</code>.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> items = <span class="keyword">new</span> Array();
+items[items.length] = <span class="string">'abracadabra'</span>;
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> items = [];
+items.push(<span class="string">'abracadabra'</span>);</code></pre></div></section><section class="row" id="arrays-copying"><div class="column"><h3 id="copiando-arrays">Copiando Arrays</h3><p>Quando você precisar de uma cópia de um array use <code>Array#slice</code>.</p></div><div class="column"><pre><code class="language-javascript"><span class="keyword">var</span> len = items.length,
+    itemsCopy = [],
+    i;
+
+<span class="comment">// Ruim</span>
+<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++) {
+  itemsCopy[i] = items[i];
+}
+
+<span class="comment">// Bom</span>
+itemsCopy = items.slice();</code></pre></div></section><section class="row" id="arrays-converting"><div class="column"><h3 id="convertendo-objetos-em-array">Convertendo Objetos em Array</h3><p>Para converter um objeto como array para um array, use <code>Array#slice</code>.</p></div><div class="column"><pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">trigger</span><span class="params">()</span> {</span>
+  <span class="keyword">var</span> args = Array.prototype.slice.call(arguments);
+  ...
+}</code></pre></div></section><section class="row" id="arrays-verifying"><div class="column"><h3 id="verificando-exist-ncia-de-um-array">Verificando Existência de um Array</h3><p>Para verificar se um objeto é um array podemos usar uma série de abordagens, tais como testar o <code>length</code> de um objeto, verificar usando <code>instanceof</code> ou testar o <code>constructor</code> de um objeto, porém estas abordagens não são muito seguras. O ideal é usar um método do objeto <code>Array</code> definido no EcmaScript 5: <code>Array.prototype.isArray(object)</code>. Ele nos ajuda a testar se um objeto é do tipo <code>Array</code> ou não. Este método retorna <code>true</code> caso o objeto seja um array e <code>false</code> caso não seja. Esta abordagem é muito simples e útil.</p></div><div class="column"><pre><code class="language-javascript"><span class="keyword">var</span> myArray = [<span class="number">5</span>, <span class="string">'John'</span>, <span class="literal">true</span>];
+
+<span class="comment">// Ruim</span>
+<span class="keyword">if</span> (myArray.length) {
+  <span class="comment">// some stuff</span>
+}
+
+<span class="comment">// Ruim</span>
+<span class="keyword">if</span> (myArray <span class="keyword">instanceof</span> Array) {
+  <span class="comment">// some stuff</span>
+}
+
+<span class="comment">// Ruim</span>
+<span class="keyword">if</span> (myArray.constructor === Array) {
+  <span class="comment">// some stuff</span>
+}
+
+<span class="comment">// Bom</span>
+<span class="keyword">if</span> (Array.isArray(myArray)) {
+  <span class="comment">// some stuff</span>
+}</code></pre></div></section><h3 class="title-sub" id="functions">Funções</h3><section class="row" id="functions-types"><div class="column"><h3 id="tipos-de-fun-es">Tipos de funções</h3><p>Funções são um tipo muito poderoso em Javascript. Você pode usá-las para fazer muitas coisas, como definir métodos privados e públicos de objetos e também criar funções reutilizáveis durante sua aplicação.</p><p>Conheça alguns dos tipos de funções disponíveis:</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Funções anonimas</span>
+<span class="keyword">var</span> anonymous = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">return</span> <span class="literal">true</span>;
+};
+
+<span class="comment">// Funções nomeadas</span>
+<span class="keyword">var</span> named = <span class="function"><span class="keyword">function</span> <span class="title">named</span><span class="params">()</span> {</span>
+  <span class="keyword">return</span> <span class="literal">true</span>;
+};
+
+<span class="comment">// IIFE (Immediately-invoked Function Expression)</span>
+(<span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  console.log(<span class="string">'Welcome to the Internet. Please follow me.'</span>);
+})();</code></pre></div></section><section class="row" id="functions-define"><div class="column"><h3 id="definindo-fun-es">Definindo funções</h3><p>Existe algumas maneiras de se criar uma função, para cada maneira há um cenário mais adequado. Isso dependerá muito do pattern que você está seguindo. Porém existe alguns padrões que devemos seguir:</p><ul><li>Evite nomear funções com apenas uma letra. Seja bem descritivo quando for nomear suas funções.</li><li>Use <code>{}</code> ao lado da expresão, nunca embaixo.</li><li>Caso crie uma função no modo literal use <code>;</code>, caso contrário não.</li><li>Opte por sempre nomear suas funções.</li><li>Não use espaço antes dos <code>()</code> para declarar suas funções.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> f = <span class="function"><span class="keyword">function</span> <span class="params">()</span>
+{</span>
+
+}
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> {</span>
+
+};</code></pre></div></section><h3 class="title-sub" id="objects">Objetos</h3><section class="row" id="objects-creating"><div class="column"><h3 id="criando-objetos">Criando objetos</h3><ul><li>Opte sempre por usar a sintaxe literal para criar objetos.</li><li>Não use <a href="http://es5.github.io/#x7.6.1.1">palavras reservadas</a> como chaves.</li><li>Use sinônimos legíveis no lugar de palavras reservadas.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> superman = <span class="keyword">new</span> Object();
+superman.<span class="keyword">default</span> = { clark: <span class="string">'kent'</span> };
+superman.private = <span class="literal">true</span>;
+superman.class = <span class="string">'alien'</span>;
+
+<span class="comment">// Bom</span>
+<span class="keyword">var</span> superman = {};
+superman.defaults = { clark: <span class="string">'kent'</span> };
+superman.hidden = <span class="literal">true</span>;
+superman.type = <span class="string">'alien'</span>;</code></pre></div></section><section class="row" id="objects-accessing"><div class="column"><h3 id="acessando-objetos">Acessando Objetos</h3><p>Você pode acessar uma propriedade de um objeto de várias maneiras, porém a maneira mais adequada é usando <code>.</code> ao invés de <code>[]</code>.</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+myObject[<span class="string">'property'</span>];
+
+<span class="comment">// Bom</span>
+myObject.property;</code></pre></div></section><section class="row" id="objects-checking-boolean"><div class="column"><h3 id="checkando-propriedades-boleanas">Checkando Propriedades Boleanas</h3><p>Caso você queira checar se uma propriedade de um objeto existe, crie um método que retorne a propriedade. Suas instruções se tornarãm muito mais legível ao decorrer do código.</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">if</span> (!dragon.age()) {
+  <span class="comment">// alguma ação</span>
+}
+
+<span class="comment">// Bom</span>
+<span class="keyword">if</span> (!dragon.hasAge()) {
+  <span class="comment">// alguma ação</span>
+}</code></pre></div></section><h3 class="title-sub" id="constructors">Construtores</h3><section class="row" id="constructors-define"><div class="column"><h3 id="definindo-construtores">Definindo Construtores</h3><p>Funções construtoras em Javascript servem para simular a criação de uma classe, porém Javascript não tem classes, mas sim objetos. Caso opte por uma abordagem OOP (Object-oriented Programming), siga:</p><ul><li>Declare suas funções construtoras usando <code>PascalCase</code>.</li><li>Use <code>_</code> para definir seus métodos e propriedades privados.</li><li>Quando salvar uma referência ao <code>this</code> use <code>_this</code>. Evite self, that ou qualquer outra coisa, ok?</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="function"><span class="keyword">function</span> <span class="title">user</span><span class="params">(options)</span> {</span>
+  <span class="keyword">var</span> self = <span class="keyword">this</span>;
+  self.name = options.name;
+  self._sayHello = <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'Hello world!'</span>);
+  };
+}
+
+<span class="keyword">var</span> user = <span class="keyword">new</span> User({name: <span class="string">'John Doe'</span>});
+
+<span class="comment">// Bom</span>
+<span class="function"><span class="keyword">function</span> <span class="title">User</span><span class="params">(options)</span> {</span>
+  <span class="keyword">var</span> _<span class="keyword">this</span> = <span class="keyword">this</span>;
+  _<span class="keyword">this</span>.name = options.name;
+  _<span class="keyword">this</span>._sayHello = <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'Hello world!'</span>);
+  };
+}
+
+<span class="keyword">var</span> user = <span class="keyword">new</span> User({name: <span class="string">'John Doe'</span>});</code></pre></div></section><section class="row" id="constructors-namespaces"><div class="column"><h3 id="namespaces-internos-e-m-todos-privados">Namespaces Internos e Métodos Privados</h3><p>Quando você usar Constructor Pattern, use um namespace para criar metódos internos e retorne os metódos da sua API chamando estes métodos. Não se esqueça de usar <code>_</code> para definir seus métodos privados.</p></div><div class="column"><pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Jedi</span><span class="params">(name)</span> {</span>
+  <span class="keyword">this</span>.name = name;
+
+  <span class="comment">// namespace interno para definir os métodos</span>
+  <span class="keyword">var</span> module = module || {};
+
+  <span class="comment">// método interno privado</span>
+  module._fighting = <span class="function"><span class="keyword">function</span> <span class="title">_fighting</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'fighting'</span>);
+  };
+
+  <span class="keyword">return</span> {
+    <span class="comment">// retornando um método que faz uma chamada ao método privado _fighting()</span>
+    init: <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span> {</span>
+      module._fighting();
+    }
+  };
+}</code></pre></div></section><section class="row" id="constructors-prototype"><div class="column"><h3 id="prototypes">Prototypes</h3><p>Atribua métodos para o objeto <code>Prototype</code> do seu construtor, ao invés de sobrescrever o prototype com um novo objeto. Pois sobrescrevendo o prototype fica impossível fazer herança.</p><p><strong>Para mais informações sobre herança em Javascript veja:</strong></p><ul><li><a href="http://loopinfinito.com.br/2012/05/04/heranca-em-javascript-parte-1/">Herança em JavaScript parte I</a></li><li><a href="http://loopinfinito.com.br/2013/02/05/heranca-em-javascript-parte-2/">Herança em JavaScript parte II</a></li><li><a href="http://www.crockford.com/javascript/inheritance.html">Classical Inheritance in JavaScript</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Inheritance_and_the_prototype_chain">Inheritance and the prototype chain</a></li><li><a href="https://alexsexton.com/blog/2013/04/understanding-javascript-inheritance/">Understanding JavaScript Inheritance</a></li></ul></div><div class="column"><pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Jedi</span><span class="params">(name)</span> {</span>
+  <span class="keyword">this</span>.name = name;
+}
+
+<span class="comment">// Ruim</span>
+Jedi.prototype = {
+  showName: <span class="function"><span class="keyword">function</span> <span class="title">showName</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'My name is: '</span> + <span class="keyword">this</span>.name);
+  },
+  fighting: <span class="function"><span class="keyword">function</span> <span class="title">fighting</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'fighting!'</span>);
+  }
+};
+
+<span class="comment">// Bom</span>
+Jedi.prototype.showName = <span class="function"><span class="keyword">function</span> <span class="title">showName</span><span class="params">()</span> {</span>
+  console.log(<span class="string">'My name is: '</span> + <span class="keyword">this</span>.name);
+};
+
+Jedi.prototype.fight = <span class="function"><span class="keyword">function</span> <span class="title">fight</span><span class="params">()</span> {</span>
+  console.log(<span class="string">'fighting'</span>);
+};</code></pre></div></section><section class="row" id="constructors-getters-setters"><div class="column"><h3 id="getters-and-setters">Getters and Setters</h3><p>Para uma abordagem mais ampla e para criar objetos mais &quot;inteligentes&quot; e de fácil compreensão, o ideal é que você crie métodos getters/setters para seus objetos. Porém seja consistente na criação de seus getters/setters.</p></div><div class="column"><pre><code class="language-javascript"><span class="function"><span class="keyword">function</span> <span class="title">Jedi</span><span class="params">(options)</span> {</span>
+  options || (options = {});
+  <span class="keyword">var</span> lightsaber = options.lightsaber || <span class="string">'blue'</span>;
+  <span class="keyword">this</span>.set(<span class="string">'lightsaber'</span>, lightsaber);
+}
+
+Jedi.prototype.set = <span class="function"><span class="keyword">function</span><span class="params">(key, val)</span> {</span>
+  <span class="keyword">this</span>[key] = val;
+};
+
+Jedi.prototype.get = <span class="function"><span class="keyword">function</span><span class="params">(key)</span> {</span>
+  <span class="keyword">return</span> <span class="keyword">this</span>[key];
+};</code></pre></div></section><section class="row" id="constructors-chain-methods"><div class="column"><h3 id="chain-methods-m-todos-encadeados-">Chain Methods (Métodos encadeados)</h3><p>Uma opção muito útil quando estamos definindo métodos dos nossos construtores é retornar o objeto <code>this</code> para à criação de <a href="http://en.wikipedia.org/wiki/Method_chaining">chain methods</a>. A famosa biblioteca <a href="http://www.jquery.com">jQuery</a> usa muito este conceito. Veja um exemplo:</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+Jedi.prototype.jump = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">this</span>.jumping = <span class="literal">true</span>;
+  <span class="keyword">return</span> <span class="literal">true</span>;
+};
+
+Jedi.prototype.setHeight = <span class="function"><span class="keyword">function</span><span class="params">(height)</span> {</span>
+  <span class="keyword">this</span>.height = height;
+};
+
+<span class="keyword">var</span> luke = <span class="keyword">new</span> Jedi();
+luke.jump(); <span class="comment">// =&gt; true</span>
+luke.setHeight(<span class="number">20</span>) <span class="comment">// =&gt; undefined</span>
+
+<span class="comment">// Bom</span>
+Jedi.prototype.jump = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">this</span>.jumping = <span class="literal">true</span>;
+  <span class="keyword">return</span> <span class="keyword">this</span>;
+};
+
+Jedi.prototype.setHeight = <span class="function"><span class="keyword">function</span><span class="params">(height)</span> {</span>
+  <span class="keyword">this</span>.height = height;
+  <span class="keyword">return</span> <span class="keyword">this</span>;
+};
+
+<span class="keyword">var</span> luke = <span class="keyword">new</span> Jedi();
+
+luke.jump()
+    .setHeight(<span class="number">20</span>);</code></pre></div></section><h3 class="title-sub" id="conditionals-expressions">Expressões Condicionais & Igualdade</h3><section class="row"><div class="column"><p>Expressões condicionais são avaliadas por meio de coersão com o método <code>ToBoolean</code> e sempre seguindo estas simples regras:</p><ul><li><strong>Objects</strong> são avaliados como <strong>true</strong></li><li><strong>Undefined</strong> são avaliados como <strong>false</strong></li><li><strong>Null</strong> é avaliado como <strong>false</strong></li><li><strong>Booleans</strong> são avaliados como <strong>o valor boleano definido</strong></li><li><strong>Numbers</strong> são avaliados como <strong>false</strong> se <strong>+0, -0, or NaN</strong>, caso contrário são <strong>true</strong></li><li><strong>Strings</strong> são avaliadas como <strong>false</strong> se for <strong>uma string vazia</strong> <code>&#39;&#39;</code>, caso contrário é <strong>true</strong></li></ul><p><strong>As convenções relacionadas às Expressões Condicionais são:</strong></p><ul><li>Use <code>===</code> e <code>!==</code> ao invés de <code>==</code> e <code>!=</code> sempre.</li><li>Abrevie suas declarações com atalhos.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">if</span> (name != <span class="string">''</span>) {
+  <span class="comment">// ...stuff...</span>
+}
+
+<span class="comment">// Bom</span>
+<span class="keyword">if</span> (name) {
+  <span class="comment">// ...stuff...</span>
+}
+
+<span class="comment">// Ruim</span>
+<span class="keyword">if</span> (collection.length &gt; <span class="number">0</span>) {
+  <span class="comment">// ...stuff...</span>
+}
+
+<span class="comment">// Bom</span>
+<span class="keyword">if</span> (collection.length) {
+  <span class="comment">// ...stuff...</span>
+}</code></pre></div></section><h3 class="title-sub" id="loops">Loops</h3><section class="row"><div class="column"><p>Loops podem ser um bixo de sete cabeças dentro da sua aplicação e muitas vezes acabam sendo um fatores principais de performance, por isso preste muita atenção quando for trabalhar com eles.</p><ul><li>Sempre declare seus loops em múltiplas linhas para facilitar o entendimento de quais ações seu loop está gerenciando</li><li>Para uma melhor performance, declare as váriaveis fora do loop. Assim seu script não precisa chegar o valor a cada iteração.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="keyword">var</span> myArray = [<span class="string">'1'</span>, <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>],
+    len = myArray.length,
+    i;
+
+<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i =+ <span class="number">1</span>) {
+  <span class="comment">// iteration block</span>
+}</code></pre></div></section><h3 class="title-sub" id="whitespaces">Espaços em Branco</h3><section class="row" id="whitespaces-rules"><div class="column"><h3 id="regras-gerais">Regras Gerais</h3><ul><li>Coloque espaços entre os operadores.</li><li>Sempre coloque um espaço antes de iniciar um <code>{}</code>.</li><li>Coloque espaços fora dos <code>()</code>, porém evite colocar dentro.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="keyword">var</span> x=y+<span class="number">5</span>;
+<span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span>{</span>
+  <span class="keyword">if</span>( x &gt; <span class="number">10</span> ){
+    <span class="comment">// statements</span>
+  }
+};
+
+<span class="comment">// good</span>
+<span class="keyword">var</span> x = y + <span class="number">5</span>;
+<span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> {</span>
+  <span class="keyword">if</span> (x &gt; <span class="number">10</span>) {
+    <span class="comment">// statements</span>
+  }
+};</code></pre></div></section><section class="row" id="whitespaces-chain"><div class="column"><h3 id="idente-seus-chain-methods">Idente seus Chain Methods</h3><p>Opte por sempre identar seus chain methods (métodos encadeados), pois assim voê tornará seu código mais legível e evitará que ele quebre em mais que 80 caracteres.</p></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+$(<span class="string">'#items'</span>).find(<span class="string">'.selected'</span>).highlight().end().find(<span class="string">'.open'</span>).updateCount();
+
+<span class="comment">// Bom</span>
+$(<span class="string">'#items'</span>)
+  .find(<span class="string">'.selected'</span>)
+    .highlight()
+    .end()
+  .find(<span class="string">'.open'</span>)
+    .updateCount();</code></pre></div></section><h3 class="title-sub" id="comments">Comentários</h3><section class="row"><div class="column"><p>Comentários podem ajudar você a manter um código colaborativo e de fácil manutenção, porém cuide com algumas convenções.</p><ul><li>Use <code>//</code> apenas para comentários de uma única linha.</li><li>Nunca coloque o comentário ao lado do código, sempre acima.</li><li>Deixe uma linha de espaço sempre antes do comentário.</li><li>Use <code>/* */</code> para comentários com múltiplas linhas. Incluindo uma descrição, especificando tipos e valores para parâmetros e valores de retorno. Tente ser o mais declarativo possível, passando exatamente a real função do seu código. Não apenas citando coisas óbvias.</li></ul></div><div class="column"><pre><code class="language-javascript"><span class="comment">// Ruim</span>
+<span class="comment">// função make que recebe um parâmetro tag</span>
+<span class="comment">// que retorna um elemento</span>
+<span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">(tag)</span> {</span>
+  <span class="comment">// alguma ação</span>
+  <span class="keyword">return</span> element;
+}
+
+<span class="comment">// Bom</span>
+<span class="comment">/**
+ * make() retorna um novo element
+ * baseado no que foi passado na tag name
+ *
+ * @param &lt;String&gt; tag
+ * @return &lt;Element&gt; element
+ */</span>
+<span class="function"><span class="keyword">function</span> <span class="title">make</span><span class="params">(tag)</span> {</span>
+  <span class="comment">// alguma ação</span>
+  <span class="keyword">return</span> element;
+}</code></pre></div></section><footer class="footer">Feito com muito ❤︎ por <a href="http://www.pedronauck.com/" target="_blank">Pedro Nauck</a>. Fique a vontade para forkar e fazer o seu :)<br>Com base no <a href="http://mdo.github.io/code-guide" target="_blank">Code Guide do @mdo</a> para o que se refere à HTML e CSS, juntamente com conceitos do <a href="https://github.com/airbnb/javascript" target="_blank">AirBNB Javascript Style Guide</a> e <a href="https://github.com/zenorocha/my-coding-style" target="_blank">Coding Style do Zeno Rocha</a> para as convenções de Javascript.</footer></div></main><script src="../../../../../../frontend-styleguide/assets/js/application.js"></script><script type="text/javascript">window.___gcfg = {lang: 'pt-BR'};
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/platform.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();</script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-47320491-1', 'pedronauck.com');
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');</script></body></html>
